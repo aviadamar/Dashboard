@@ -1,0 +1,29 @@
+{% extends 'layout.j2' %}
+
+{% block body %}
+<section>
+    <div class="row top_space_m">
+        <div class="log_reg_box width_m">
+        {% if not valid %}
+            <p class="text_l"> Add Link: </p>
+            <form action="{{ url_for('add') }}" method="POST">
+                <ul>
+                    <li>
+                        <input class="log_input" name="name" type="text" placeholder="Name (max 20 chars)">
+                    </li>
+                    <li>
+                        <input class="log_input" name="url" type="text" placeholder="Url">
+                    </li>
+                    <li>
+                        <textarea class="log_input" name="description" row=4 placeholder="Description (max 100 chars)"></textarea>
+                    </li>
+                    <li><button class="button button_big yellow"> Add </button></li>
+                </ul>
+            </form>
+        {% else %}
+            <p class="text_l"> The link was successfully attached! </p>
+        {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock  %}

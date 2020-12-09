@@ -1,0 +1,60 @@
+{% extends 'layout.j2' %}
+
+{% block body %}
+<section>
+    <div class="row top_space_m">
+        <div class="log_reg_box">
+            {% if not valid %} 
+                <p class="text_l"> Join Us, It's Free! </p>
+                <p class="text_s">Start making your own homepage board today.</h2>
+                <form action="{{ url_for('register') }}" method="POST">
+                    <ul>
+                        <li>
+                            <input class="log_input" name="username" type="text" placeholder="username">
+                        </li>
+                        {% if not status['available_username'] %}
+                        <li>
+                            <p class="text_xs text_red"> This username is already exist. <p>
+                        </li>
+                        {% endif %}
+                        {% if not status['valid_username'] %}
+                        <li>
+                            <p class="text_xs text_red"> Username is not valid. (min 8 chars only numbers and letters) <p>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <input class="log_input" name="email" type="email" placeholder="Email">
+                        </li>
+                        {% if not status['valid_email'] %}
+                        <li>
+                            <p class="text_xs text_red"> This email is already exist. <p>
+                        </li>
+                        {% endif %}
+
+                        <li>
+                            <input class="log_input" name="password" type="password" placeholder="Password">
+                        </li>
+                        {% if not status['valid_password'] %}
+                        <li>
+                            <p class="text_xs text_red"> Password is not valid. (min 8 chars) <p>
+                        </li>
+                        {% endif %}
+
+                        <li>
+                            <input class="log_input" name="password_validation" type="password" placeholder="Confirm Password">
+                        </li>
+                        {% if not status['password_validation']  %}
+                        <li>
+                            <p class="text_xs text_red"> Passwords are not equals.<p>
+                        </li>
+                        {% endif %}
+                        <li><button class="button button_big yellow"> Submit </button></li>
+                    </ul>
+                </form>
+            {% else %}
+                <p class="text_l"> Successful !! </p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock  %}

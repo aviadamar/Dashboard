@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" type="text/css" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="{{url_for('static', filename='scripts.js')}}"></script>
+    <title>Dashboard</title>
+</head>
+
+<body class="theme_01">
+    <nav>
+        <a href="/" class="logo"> - Board </a>
+        <ul>
+            <li> ABOUT </li>
+            {% if not session.get('username') %}
+            <li> <a href="\login"> LOG IN </a></li>
+            <li> <a href="\register"> SIGN UP </a> </li>
+            {% else %}
+            <li id='username'> {{session.get('username')}} </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% if session.get('username') %}
+    <div class="user_options">
+        <ul>
+            <li class="button pink"><a href="\add"> ADD LINK </a></li>
+            <li> | </li>
+            <li><p id="delete_link"> DELETE LINK </p></li>
+            <li> | </li>
+            <li><a href="\logout"> SIGN OUT </a></li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <main>
+        {% block body %}
+        {% endblock  %}
+    </main>
+    <footer>
+        <p> © Aviad Amar - 2020 All rights reserved.  </p>
+    </footer>
+</body>
+
+</html>

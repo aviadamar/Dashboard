@@ -1,0 +1,31 @@
+{% extends 'layout.j2' %}
+
+{% block body %}
+<section>
+    <div class="row top_space_m">
+        <div class="log_reg_box width_m">
+            <p class="text_l"> Welcome Back! </p>
+            <p class="text_s">Please login to your account.</h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <ul>
+                    <li>
+                        <input class="log_input" name="username" type="text" placeholder="Username">
+                    </li>
+                    <li>
+                        <input class="log_input" name="password" type="password" placeholder="Password">
+                    </li>
+                    {% if error %}
+                    <li>
+                        <p class="text_xs text_red"> Username or Password are incorrect, try again. <p>
+                    <li>
+                    {% endif %}
+                    <li>
+                        <a href="\" class="text_xs text_blue"> Forgot Password? </a>
+                    </li>
+                    <li><button class="button button_big yellow"> Login </button></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock  %}

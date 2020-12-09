@@ -1,0 +1,35 @@
+{% extends 'layout.j2' %}
+
+{% block body %}
+{% if user %}
+<section>
+    <div class="row top_space_m">
+        <ul class="links">
+        {% for link in user_links %}
+            <li id="link">
+                <a href="{{ link.url }}" target="_blank" id="link_title" class="link_flex"> {{link.name}} </a>
+                <a href="/{{link.id}}" class="link_cancel link_flex"> x </a>
+                <p class="followers text_blue link_flex"> Followers: {{link.followers}} </p>
+            </li>
+        {% endfor %}
+        </ul> 
+    </div>
+</section>
+{% else %}
+<section>
+    <div class="row intro_flex">
+        <div class="col-2 left">
+            <p class="text_xl"> CREATE YOUR OWN HOMEPAGE </p>
+            <p class="intro_p">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt repellendus nostrum modi corrupti,
+                voluptatem libero tempore cumque omnis id suscipit eveniet. Voluptate, animi! Eveniet natus, ab corrupti
+                debitis facere facilis.
+            </p>
+        </div>
+        <div class="col-2 center">
+            <img class="intro_pic" src="static/img/intro_pic.png">
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock  %}

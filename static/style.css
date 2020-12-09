@@ -1,0 +1,447 @@
+/*
+Colors:
+    - Black: #231F20
+    - Pink: #EC008B
+    - Gray: lightgray
+    - Light Gray: #F4F4F4
+    - Bright Yello: #FFF200
+    - Bright blue: #00AEEF
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Make box size to be the total width and not till padding*/
+}
+
+html {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 62.5%;  /*16px / 10px = 62.5% -> 1rem = 10px*/
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-image: url('/static/img/bg_black95.png');
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+
+main {
+    height: 100vh;
+}
+
+.row {
+    width: 85%;
+    margin: auto;
+    text-align: left;
+    height: 60%;
+}
+
+.col-2 {
+    flex: 1 40rem;
+    padding: 2rem;
+}
+
+.top_space_m {
+    margin-top: 8rem;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: grid;
+    grid-template-columns: 70% 30%;
+
+    position: sticky;
+    z-index:1;
+    top: 0rem;
+
+    height: 6rem;
+    background-color: #F4F4F4;
+    padding: 0 3rem 0 3rem;
+}
+
+
+.logo {
+    font-weight: 900;
+    font-size: 2.6rem;
+    color:  #231F20;
+    padding-top: 0.6rem;
+}
+
+.user_options {
+    display: block;
+}
+
+nav ul,
+.user_options ul {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul {
+    justify-content: flex-start;
+}
+
+.user_options {
+    height: 4rem;
+    font-size: 1.2rem;
+}
+
+.user_options ul {
+    justify-content: flex-end;
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+.user_options ul:last-child {
+    padding-right: 2rem;
+}
+
+.user_options li {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.user_options li:hover {
+    font-weight: 700;
+}
+
+#username {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+
+.button {
+    border: none;
+    border-radius: 10rem;
+    background-color: #231F20;
+    color: white;
+}
+
+.button_big {
+    font-weight: 700;
+    height: 4rem;
+    font-size: 1.8rem;
+    width: 20rem;
+}
+
+.yellow:hover{
+    background-color: #FFF200;
+    color: #231F20;
+}
+
+.pink{
+    background-color: #EC008B;
+    color: white;
+}
+
+.pink:hover{
+    background-color: #231F20;
+}
+
+nav li {
+    flex: 1;
+    font-weight: 700;
+    font-size: 1.4rem;
+    background-color: #231F20;
+    color: white;
+}
+
+nav li:hover {
+    background-color: #EC008B;
+}
+
+.user_options il {
+    flex: 1;
+    color: red;
+}
+
+#delete_link:hover {
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    padding: 1.5rem 3rem 1.5rem 3rem;
+    font-size: 1.4rem;
+    background-color: #231F20;
+    color: grey;
+}
+
+footer p{
+    word-spacing: 0.6rem;
+}
+
+/* THEMES */
+
+.theme_01 {
+    background-color: white;
+    color: #231F20;
+}
+
+/* TITLES */
+
+.text_l { 
+    font-size: 5rem;
+    font-weight: 900;
+    word-spacing: 1rem;
+    line-height: 5rem;
+}
+
+.text_s {
+    font-size: 2rem;
+    font-weight: 400;
+    word-spacing: 0.2rem;
+    letter-spacing: 0.2rem;
+}
+
+.text_xs {
+    font-size: 1.2rem;
+}
+
+.text_xl {
+    font-size: 6rem;
+    font-weight: 700;
+    word-spacing: 1rem;
+    line-height: 7rem;
+    padding-bottom: 2rem;
+}
+
+.text_blue {
+    color: #00AEEF;
+}
+
+.text_red {
+    color: red;
+}
+
+.text_lightgrey {
+    color: lightgrey;
+}
+
+
+/* PARA */
+
+.intro_p {
+    font-size: 2rem;
+    color: gray;
+}
+
+/*  IMAGES */
+
+.intro_pic {
+    width: 80%;
+}
+
+/* OTHERS */
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+/* FORMS */
+
+button, 
+input, 
+select, 
+textarea { 
+  font-family: inherit; 
+  font-size: 100%; 
+  box-sizing: border-box; 
+  padding: 0; margin: 0; 
+} 
+
+textarea { 
+  overflow: auto; 
+  resize:vertical;
+  
+} 
+
+input[type=text],
+textarea {
+    font-size: 1.4rem
+}
+
+input::placeholder,
+textarea::placeholder{
+    font-size: 1.4rem;
+}
+
+input:focus,
+textarea:focus{
+    font-size: 2.2rem;
+}
+
+form ul {
+    list-style-type: none;
+}
+
+form ul li:last-child{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.log_reg_box {
+    margin: auto;
+    width: 55rem;
+
+}
+
+.log_input {
+    border: none;
+    border-bottom: 2px solid #231F20;
+
+    height: 4rem;
+    width: 100%;
+    margin: 2rem 0 2rem 0;
+}
+
+
+/* LINK BOARDS */
+
+.links {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    
+    text-align: left;
+    list-style-type: none;
+}
+
+#link {
+    flex: 1 28rem;
+    align-self: flex-start;
+    flex-grow: 0;
+
+    border-radius: 1rem;
+    margin: 0 3rem 3rem 0;
+
+    height: 7rem;
+    background-color: #F4F4F4;
+
+    filter: drop-shadow(0 1rem 0rem Black);
+
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    border: 2px solid #231F20;
+}
+
+.link_flex {
+    flex: 1 50%;
+}
+
+.link_cancel{
+    font-weight: 900;
+    text-align: right;
+    font-size: 2rem;
+    color: red;
+    opacity: 0;
+    padding-right: 1rem;
+}
+
+
+#link_description {
+    display: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+#link_title {
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding-left: 1rem;
+}
+
+.followers {
+    flex: 2;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+}
+
+
+/* Inro Flex */
+
+.intro_flex {
+    display: flex;
+    flex-flow: row wrap; 
+    padding-top: 6rem;
+    margin-bottom: 4rem;
+    text-align: left;
+    list-style-type: none;
+}
+
+.col-2 {
+    flex: 1 50%;
+}
+
+
+
+/* MEDIA */
+/* what happen when the screen is less then 50rem */
+@media (pointer: Coarse), (max-width: 75em) {
+    nav {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (pointer: Coarse), (max-width: 50em) {
+    nav {
+        grid-template-columns: 40% 60%;
+    }
+    .text_xl {
+        font-size: 5rem;
+    }
+    .text_l { 
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+    .text_s {
+        font-size: 1.6rem;
+    }
+}
+
+@media (pointer: Coarse), (max-width: 35em) {
+    .user_options ul {
+        justify-content: center;
+    }
+    .intro_pic {
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+    #link{
+        flex: 1 100%;
+        margin: 0 0 3rem 0;
+    }
+    .log_reg_box {
+        width: 100%;
+    }
+}
