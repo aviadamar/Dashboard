@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (menu[0].style.opacity == 0) {
                 for (var i = 0; i < menu.length; i++) {
                     menu[i].style.opacity = 1;
+                    menu[i].style.pointer_events = 'auto';
                 }
             }
             else {
                 for (var i = 0; i < menu.length; i++) {
                     menu[i].style.opacity = 0;
+                    menu[i].style.pointer_events = 'none';
                 }
             }
         };
-
 });
-
