@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#username').onclick =
         function () {
             var menu = document.querySelector(".user_options");
-            if (menu.style.display == 'block') {
+            if (menu.style.display === 'block') {
                 menu.style.display = 'none';
             }
             else {
@@ -14,16 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#delete_link').onclick =
         function () {
             var menu = document.querySelectorAll(".link_cancel");
-            if (menu[0].style.opacity == 0) {
+            if (menu[0].style.display === 'block') {
                 for (var i = 0; i < menu.length; i++) {
-                    menu[i].style.opacity = 1;
-                    menu[i].disable = false;
+                    menu[i].style.display = 'none';
                 }
             }
             else {
                 for (var i = 0; i < menu.length; i++) {
-                    menu[i].style.opacity = 0;
-                    menu[i].disable = true;
+                    menu[i].style.display = 'block';
                 }
             }
         };

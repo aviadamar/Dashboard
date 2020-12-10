@@ -349,21 +349,25 @@ form ul li:last-child{
     filter: drop-shadow(0 1rem 0rem Black);
 
     display: flex;
-    flex-flow: wrap;
+    flex-flow: column wrap;
     justify-content: flex-start;
     border: 2px solid #231F20;
 }
 
 .link_flex {
-    flex: 1 50%;
+    flex: 1;
 }
 
 .link_cancel{
+    display: none;
+    position: absolute;
+    top: 0rem;
+    right: 0.5rem;
+
     font-weight: 900;
     text-align: right;
     font-size: 2rem;
     color: red;
-    opacity: 0;
     padding-right: 1rem;
 }
 
@@ -382,7 +386,7 @@ form ul li:last-child{
 }
 
 .followers {
-    flex: 2;
+    flex: 1;
     font-size: 1.4rem;
     padding-left: 1rem;
 }
