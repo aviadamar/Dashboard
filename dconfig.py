@@ -1,4 +1,6 @@
 from decouple import config
+import os
+
 
 DATABASE = config('DATABASE')
 USER = config('USER')

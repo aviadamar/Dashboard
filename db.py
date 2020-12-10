@@ -5,13 +5,12 @@ import hashlib
 import os
 from peewee import *
 
-
 database = PostgresqlDatabase(
-    DATABASE,
-    user=USER,
-    password=PASSWORD,
-    host=HOST,
-    port=PORT,
+    dconfig.DATABASE,
+    user=dconfig.USER,
+    password=dconfig.PASSWORD,
+    host=dconfig.HOST,
+    port=dconfig.PORT,
 )
 
 
