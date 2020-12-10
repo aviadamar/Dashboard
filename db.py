@@ -6,13 +6,6 @@ from peewee import *
 from playhouse.db_url import connect
 
 database = connect(os.environ.get('DATABASE_URL'))
-# database = PostgresqlDatabase(
-#     dconfig.DATABASE,
-#     user=dconfig.USER,
-#     password=dconfig.PASSWORD,
-#     host=dconfig.HOST,
-#     port=dconfig.PORT,
-# )
 
 
 class BaseModel(Model):
