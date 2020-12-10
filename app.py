@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, url_for, session, redirect
 
 # creating the application named app
 app = Flask(__name__)
-app.config.from_envvar(dconfig.SECRET_KEY)
+app.config.from_pyfile('dconfig.py')
 
 
 @app.route("/")
