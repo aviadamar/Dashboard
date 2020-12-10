@@ -1,4 +1,5 @@
 bcrypt==3.2.0
+boto==2.49.0
 cffi==1.14.4
 click==7.1.2
 Flask==1.1.2
