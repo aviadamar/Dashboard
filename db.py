@@ -5,13 +5,7 @@ import os
 from peewee import *
 
 
-database = PostgresqlDatabase(
-    dconfig.DATABASE,
-    user=dconfig.USER,
-    password=dconfig.PASSWORD,
-    host=dconfig.HOST,
-    port=dconfig.PORT,
-)
+database = PostgresqlDatabase(dconfig.DATABASE_URL)
 
 
 class BaseModel(Model):
