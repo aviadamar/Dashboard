@@ -1,9 +1,9 @@
 import dconfig
-from decouple import config
 from datetime import date
 import hashlib
 import os
 from peewee import *
+
 
 database = PostgresqlDatabase(
     dconfig.DATABASE,
