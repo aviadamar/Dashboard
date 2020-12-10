@@ -1,17 +1,10 @@
-from boto.s3.connection import S3Connection
+import dconfig
+from decouple import config
 from datetime import date
 import hashlib
 import os
 from peewee import *
 
-s3 = S3Connection(
-    os.environ['DATABASE'],
-    os.environ['USER'],
-    os.environ['PASSWORD'],
-    os.environ['HOST'],
-    os.environ['PORT'],
-    os.environ['SECRET_KEY']
-)
 
 database = PostgresqlDatabase(
     DATABASE,
