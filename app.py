@@ -107,6 +107,7 @@ def add():
         url = request.form['url']
         description = request.form['description']
         valid = db.create_link(name, url, description, username)
+        return redirect(url_for('index'))
     return render_template("add.j2", valid=valid)
 
 

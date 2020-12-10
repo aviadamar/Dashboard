@@ -364,7 +364,6 @@ form ul li:last-child{
     font-size: 2rem;
     color: red;
     opacity: 0;
-    pointer-events: none;
     padding-right: 1rem;
 }
 
