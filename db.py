@@ -3,17 +3,16 @@ from datetime import date
 import hashlib
 import os
 from peewee import *
-import logging
+from playhouse.db_url import connect
 
-
-logging.critical(os.environ['DATABASE_URL'])
-database = PostgresqlDatabase(
-    dconfig.DATABASE,
-    user=dconfig.USER,
-    password=dconfig.PASSWORD,
-    host=dconfig.HOST,
-    port=dconfig.PORT,
-)
+database = connect(os.environ.get('DATABASE_URL'))
+# database = PostgresqlDatabase(
+#     dconfig.DATABASE,
+#     user=dconfig.USER,
+#     password=dconfig.PASSWORD,
+#     host=dconfig.HOST,
+#     port=dconfig.PORT,
+# )
 
 
 class BaseModel(Model):
