@@ -4,6 +4,7 @@
 {% if user %}
 <section>
     <div class="row top_space_m">
+    {% if user_links %}
         <ul class="links">
         {% for link in user_links %}
             <li id="link">
@@ -13,6 +14,9 @@
             </li>
         {% endfor %}
         </ul> 
+    {% else %}
+        <p class="text_l top_space_m"> Your Board is ampty. add some links to it ... </p>
+    {% endif %}
     </div>
 </section>
 {% else %}
