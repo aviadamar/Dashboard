@@ -4,6 +4,7 @@ import hashlib
 import os
 from peewee import *
 import urllib.parse
+import psycopg2
 
 urllib.parse.uses_netloc.append("postgres")
 url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
