@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (menu[0].style.opacity == 0) {
                 for (var i = 0; i < menu.length; i++) {
                     menu[i].style.opacity = 1;
-                    menu[i].disable = False;
+                    menu[i].disable = false;
                 }
             }
             else {
                 for (var i = 0; i < menu.length; i++) {
                     menu[i].style.opacity = 0;
-                    menu[i].disable = True;
+                    menu[i].disable = true;
                 }
             }
         };
