@@ -1,8 +1,10 @@
-import dconfig
 from datetime import date
 import hashlib
 import os
-from peewee import *
+from peewee import (
+    BlobField, CharField, DateTimeField,
+    DoesNotExist, ForeignKeyField, IntegerField, Model
+)
 from playhouse.db_url import connect
 
 database = connect(os.environ.get('DATABASE_URL'))
@@ -61,7 +63,7 @@ def create_user(username, email, password):
 def create_link(name, url, description, username):
     if name is None or len(name) > 20 or url is None:
         return False
-    if not "https://" in url:
+    if "https://" not in url:
         url = "https://" + url
 
     link = get_link(url)
@@ -120,7 +122,7 @@ def update_followers(link_id, remove=False):
 def add_to_board(new_link, username):
     user = get_user(username)
     try:
-        link = UserLink.select().where(
+        UserLink.select().where(
             UserLink.user_id == user.id, UserLink.link_id == new_link.id).get()
     except DoesNotExist:
         new_row = UserLink(
@@ -171,7 +173,7 @@ def is_valid_email(email):
     return True
 
 
-def registration_validation(status,  username, email,
+def registration_validation(status, username, email,
                             password, password_validation):
     if get_user(username):
         status['available_username'] = False

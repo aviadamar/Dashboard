@@ -1,6 +1,5 @@
 import db
-import dconfig
-from flask import Flask, render_template, request, url_for, session, redirect
+from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
 app.config.from_pyfile('dconfig.py')
@@ -58,7 +57,7 @@ def register():
         status = db.registration_validation(status, username, email,
                                             password, password_validation)
 
-        if all(value == True for value in status.values()):
+        if all(bool(value) for value in status.values()):
             valid = True
             db.create_user(username, email, password)
 
