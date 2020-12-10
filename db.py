@@ -3,7 +3,10 @@ from datetime import date
 import hashlib
 import os
 from peewee import *
+import logging
 
+
+logging.critical(os.environ['DATABASE_URL'])
 database = PostgresqlDatabase(
     dconfig.DATABASE,
     user=dconfig.USER,
