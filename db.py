@@ -2,14 +2,13 @@ from datetime import date
 import hashlib
 import os
 from peewee import *
-import private
 
 database = PostgresqlDatabase(
-    private.DATABASE,
-    user=private.USER,
-    password=private.PASSWORD,
-    host=private.HOST,
-    port=private.PORT,
+    DATABASE,
+    user=USER,
+    password=PASSWORD,
+    host=HOST,
+    port=PORT,
 )
 
 
