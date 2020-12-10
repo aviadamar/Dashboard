@@ -6,7 +6,7 @@ import os
 from peewee import *
 
 database = PostgresqlDatabase(
-    dconfig.DATABASE,
+    dconfig.DATABASE_URL,
     user=dconfig.USER,
     password=dconfig.PASSWORD,
     host=dconfig.HOST,
