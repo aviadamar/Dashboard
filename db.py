@@ -1,6 +1,7 @@
 from datetime import date
 import hashlib
 import os
+import re
 
 from peewee import (
     BlobField, CharField, DateTimeField,
@@ -163,15 +164,16 @@ def verify_password(user, user_input):
     return reversed_key == key
 
 
-def is_password_currect(password):
-    for char in password:
-        if not (char.isalpha() or char.isdigit()):
-            return False
-    return True
+def is_valid_password(password):
+    return re.match(r'^\S{8,}', password)
 
 
 def is_valid_email(email):
-    return True
+    return re.match(r'^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}([. ]\w{2})?$', email)
+
+
+def is_valid_username(username):
+    return re.match(r'^\w{8,20}$', username)
 
 
 def registration_validation(status, username, email,
@@ -179,14 +181,15 @@ def registration_validation(status, username, email,
     if get_user(username):
         status['available_username'] = False
 
-    if not (8 < len(username) < 20):
+    if not is_valid_username(username):
         status['valid_username'] = False
 
     if not is_valid_email(email):
         status['valid_email'] = False
 
-    if not is_password_currect(password):
+    if not is_valid_password(password):
         status['valid_password'] = False
+
     elif not password == password_validation:
         status['password_validation'] = False
 
