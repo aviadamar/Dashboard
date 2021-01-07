@@ -9,7 +9,10 @@ from peewee import (
 )
 from playhouse.db_url import connect
 
+import private
+
 database = connect(os.environ.get('DATABASE_URL'))
+database = connect(private.DATABASE_URL)
 
 
 class BaseModel(Model):
@@ -60,6 +63,7 @@ def create_user(username, email, password):
         level=1
     )
     user.save()
+    return user
 
 
 def create_link(name, url, description, username):
@@ -79,9 +83,8 @@ def create_link(name, url, description, username):
             followers=0
         )
         link.save()
-
-    if not get_user(username).level == 100:
-        return add_to_board(link, username)
+        return link
+    return False
 
 
 def get_user(username):
@@ -145,8 +148,32 @@ def remove_from_board(link_id, username):
         link.delete_instance()
         update_followers(link_id, remove=True)
     else:
-        link = Link.select().where(Link.id == link_id).get()
+        delete_link(link_id)
+
+
+def delete_user(username):
+    user = get_user(username)
+    if not (user.level == 100):
+        user_links = get_user_links(username)
+        for link in user_links:
+            remove_from_board(link.id, user.username)
+        user.delete_instance()
+        return True
+    return False
+
+
+def delete_link(link_id):
+    link = Link.select().where(Link.id == link_id).get()
+    if link:
+        try:
+            all_users_with_link = UserLink.select().where(UserLink.link_id == link_id).get()
+        except DoesNotExist:
+            pass
+        else:
+            all_users_with_link.delete_instance()
         link.delete_instance()
+        return True
+    return False
 
 
 def hash_password(password):

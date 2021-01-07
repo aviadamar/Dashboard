@@ -25,6 +25,7 @@ def remove(link_id):
 
 @app.before_request
 def _db_connect():
+    db.database.close()
     db.database.connect()
 
 
@@ -105,7 +106,10 @@ def add():
         name = request.form['name']
         url = request.form['url']
         description = request.form['description']
-        valid = db.create_link(name, url, description, username)
+        link = db.create_link(name, url, description, username)
+
+        if not db.get_user(username).level == 100:
+            db.add_to_board(link, username)
         return redirect(url_for('index'))
     return render_template("add.j2", valid=valid)
 
